@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>InterviewAI Coach</title>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#0f172a;
+      color:white;
+    }
+
+    /* NAVBAR */
+
+    nav{
+      background:#111827;
+      padding:20px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .logo{
+      font-size:32px;
+      font-weight:bold;
+      color:#8b5cf6;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+      gap:25px;
+    }
+
+    nav ul li a{
+      text-decoration:none;
+      color:white;
+      font-size:18px;
+    }
+
+    nav ul li a:hover{
+      color:#8b5cf6;
+    }
+
+    /* HERO SECTION */
+
+    .hero{
+      padding:80px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:50px;
+      flex-wrap:wrap;
+    }
+
+    .hero-text{
+      flex:1;
+      min-width:300px;
+    }
+
+    .hero-text h1{
+      font-size:65px;
+      margin-bottom:25px;
+    }
+
+    .hero-text span{
+      color:#8b5cf6;
+    }
+
+    .hero-text p{
+      font-size:20px;
+      line-height:32px;
+      color:#cbd5e1;
+      margin-bottom:30px;
+    }
+
+    .hero-text button{
+      padding:15px 35px;
+      background:#8b5cf6;
+      color:white;
+      border:none;
+      border-radius:10px;
+      font-size:18px;
+      cursor:pointer;
+    }
+
+    .hero-text button:hover{
+      background:#7c3aed;
+    }
+
+    .hero-card{
+      flex:1;
+      min-width:300px;
+      background:#1e293b;
+      padding:35px;
+      border-radius:20px;
+    }
+
+    .hero-card h2{
+      margin-bottom:25px;
+    }
+
+    .chat{
+      padding:15px;
+      border-radius:10px;
+      margin-bottom:20px;
+    }
+
+    .ai{
+      background:#312e81;
+    }
+
+    .user{
+      background:#1d4ed8;
+    }
+
+    .feedback{
+      background:#065f46;
+      padding:15px;
+      border-radius:10px;
+    }
+
+    /* FEATURES */
+
+    .features{
+      padding:80px 8%;
+      text-align:center;
+    }
+
+    .features h2{
+      font-size:50px;
+      margin-bottom:50px;
+    }
+
+    .feature-container{
+      display:flex;
+      justify-content:center;
+      flex-wrap:wrap;
+      gap:25px;
+    }
+
+    .feature-box{
+      width:300px;
+      background:#1e293b;
+      padding:30px;
+      border-radius:20px;
+    }
+
+    .feature-box h3{
+      margin-bottom:15px;
+      color:#8b5cf6;
+    }
+
+    .feature-box p{
+      color:#cbd5e1;
+      line-height:26px;
+    }
+
+    /* DASHBOARD */
+
+    .dashboard{
+      padding:80px 8%;
+      text-align:center;
+    }
+
+    .dashboard h2{
+      font-size:50px;
+      margin-bottom:50px;
+    }
+
+    .dashboard-container{
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      flex-wrap:wrap;
+    }
+
+    .dashboard-box{
+      width:250px;
+      background:#1e293b;
+      padding:35px;
+      border-radius:20px;
+    }
+
+    .dashboard-box h3{
+      margin-bottom:15px;
+    }
+
+    .dashboard-box p{
+      font-size:40px;
+      color:#8b5cf6;
+      font-weight:bold;
+    }
+
+    /* HOW IT WORKS */
+
+    .steps{
+      padding:80px 8%;
+      text-align:center;
+    }
+
+    .steps h2{
+      font-size:50px;
+      margin-bottom:50px;
+    }
+
+    .step-container{
+      display:flex;
+      justify-content:center;
+      gap:25px;
+      flex-wrap:wrap;
+    }
+
+    .step-box{
+      width:220px;
+      background:#1e293b;
+      padding:30px;
+      border-radius:20px;
+    }
+
+    .step-number{
+      width:50px;
+      height:50px;
+      background:#8b5cf6;
+      border-radius:50%;
+      margin:auto;
+      margin-bottom:20px;
+      line-height:50px;
+      font-size:22px;
+      font-weight:bold;
+    }
+
+    /* SDG SECTION */
+
+    .sdg{
+      padding:80px 8%;
+      text-align:center;
+    }
+
+    .sdg h2{
+      font-size:50px;
+      margin-bottom:50px;
+    }
+
+    .sdg-container{
+      display:flex;
+      justify-content:center;
+      gap:30px;
+      flex-wrap:wrap;
+    }
+
+    .sdg-box{
+      width:320px;
+      background:#1e293b;
+      padding:40px;
+      border-radius:20px;
+    }
+
+    .sdg-box h3{
+      font-size:40px;
+      color:#8b5cf6;
+      margin-bottom:10px;
+    }
+
+    /* CONTACT */
+
+    .contact{
+      padding:80px 8%;
+      text-align:center;
+    }
+
+    .contact h2{
+      font-size:50px;
+      margin-bottom:40px;
+    }
+
+    form{
+      max-width:500px;
+      margin:auto;
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    input,
+    textarea{
+      padding:15px;
+      border:none;
+      border-radius:10px;
+      font-size:16px;
+    }
+
+    textarea{
+      height:150px;
+    }
+
+    form button{
+      padding:15px;
+      border:none;
+      background:#8b5cf6;
+      color:white;
+      font-size:18px;
+      border-radius:10px;
+      cursor:pointer;
+    }
+
+    form button:hover{
+      background:#7c3aed;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#111827;
+      text-align:center;
+      padding:25px;
+      color:#cbd5e1;
+      margin-top:40px;
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:768px){
+
+      nav{
+        flex-direction:column;
+        gap:20px;
+      }
+
+      .hero{
+        flex-direction:column;
+      }
+
+      .hero-text h1{
+        font-size:45px;
+      }
+
+      .features h2,
+      .dashboard h2,
+      .steps h2,
+      .sdg h2,
+      .contact h2{
+        font-size:38px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+
+    <div class="logo">
+      InterviewAI Coach
+    </div>
+
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Dashboard</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+
+  </nav>
+
+  <!-- HERO SECTION -->
+
+  <section class="hero">
+
+    <div class="hero-text">
+
+      <h1>
+        Ace Your <span>Interviews</span> With AI
+      </h1>
+
+      <p>
+        Practice HR, Technical, and IELTS interviews using intelligent AI-powered feedback and confidence analysis.
+      </p>
+
+      <button>
+        Start Interview
+      </button>
+
+    </div>
+
+    <div class="hero-card">
+
+      <h2>AI Interview Demo</h2>
+
+      <div class="chat ai">
+        <p>
+          <b>AI:</b> Tell me about yourself.
+        </p>
+      </div>
+
+      <div class="chat user">
+        <p>
+          <b>User:</b> I am a computer science student passionate about AI.
+        </p>
+      </div>
+
+      <div class="feedback">
+        <p>
+          <b>AI Feedback:</b>
+          Good answer. Improve confidence and reduce pauses.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FEATURES -->
+
+  <section class="features">
+
+    <h2>Smart AI Features</h2>
+
+    <div class="feature-container">
+
+      <div class="feature-box">
+        <h3>HR Interview Mode</h3>
+        <p>Practice professional HR interview questions.</p>
+      </div>
+
+      <div class="feature-box">
+        <h3>Technical Interview</h3>
+        <p>Prepare for coding and technical interviews.</p>
+      </div>
+
+      <div class="feature-box">
+        <h3>IELTS Speaking Mode</h3>
+        <p>Improve fluency and speaking confidence.</p>
+      </div>
+
+      <div class="feature-box">
+        <h3>Confidence Detection</h3>
+        <p>Analyze communication and confidence level.</p>
+      </div>
+
+      <div class="feature-box">
+        <h3>Smart Feedback</h3>
+        <p>Get personalized AI-generated reports instantly.</p>
+      </div>
+
+      <div class="feature-box">
+        <h3>Voice Interviews</h3>
+        <p>Answer interview questions naturally using voice.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- DASHBOARD -->
+
+  <section class="dashboard">
+
+    <h2>AI Analytics Dashboard</h2>
+
+    <div class="dashboard-container">
+
+      <div class="dashboard-box">
+        <h3>Confidence</h3>
+        <p>92%</p>
+      </div>
+
+      <div class="dashboard-box">
+        <h3>Fluency</h3>
+        <p>88%</p>
+      </div>
+
+      <div class="dashboard-box">
+        <h3>Communication</h3>
+        <p>95%</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- HOW IT WORKS -->
+
+  <section class="steps">
+
+    <h2>How It Works</h2>
+
+    <div class="step-container">
+
+      <div class="step-box">
+        <div class="step-number">1</div>
+        <p>Select Interview Type</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-number">2</div>
+        <p>AI Asks Questions</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-number">3</div>
+        <p>User Gives Answers</p>
+      </div>
+
+      <div class="step-box">
+        <div class="step-number">4</div>
+        <p>AI Analyzes Performance</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SDG SECTION -->
+
+  <section class="sdg">
+
+    <h2>Supporting SDGs</h2>
+
+    <div class="sdg-container">
+
+      <div class="sdg-box">
+        <h3>SDG 4</h3>
+        <p>Quality Education</p>
+      </div>
+
+      <div class="sdg-box">
+        <h3>SDG 8</h3>
+        <p>Decent Work & Economic Growth</p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT -->
+
+  <section class="contact">
+
+    <h2>Contact Us</h2>
+
+    <form>
+
+      <input type="text" placeholder="Enter Your Name">
+
+      <input type="email" placeholder="Enter Your Email">
+
+      <textarea placeholder="Enter Your Message"></textarea>
+
+      <button type="submit">
+        Send Message
+      </button>
+
+    </form>
+
+  </section>
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <p>
+      InterviewAI Coach | Presented by Naveed Ahmad (F2025-0975)
+    </p>
+
+  </footer>
+
+</body>
+</html>
